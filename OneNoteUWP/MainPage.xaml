@@ -1,0 +1,59 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OneNoteUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Data="using:Telerik.UI.Xaml.Controls.Data"
+    xmlns:Grid="using:Telerik.UI.Xaml.Controls.Grid"
+    xmlns:Input="using:Telerik.UI.Xaml.Controls.Input"
+    xmlns:Grid1="using:Syncfusion.UI.Xaml.Grid"
+    xmlns:CellGrid="using:Syncfusion.UI.Xaml.CellGrid"
+    xmlns:Input1="using:Syncfusion.UI.Xaml.Controls.Input"
+    x:Class="OneNoteUWP.MainPage"
+    mc:Ignorable="d" Width="1601.806" Height="944.512">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" />
+        </Grid.Background>
+        <Button x:Name="SignInButton" Content="Sign In" HorizontalAlignment="Left" Margin="970,54,0,0" VerticalAlignment="Top" Height="77" Width="253" FontSize="24" FontWeight="Bold" Click="SignInButton_Click" RenderTransformOrigin="2.761,0.358" />
+        <Button x:Name="CreateOneNotePageButton" Content="Create OneNote" HorizontalAlignment="Left" Margin="39,54,0,0" VerticalAlignment="Top" Height="77" Width="228" FontSize="24" FontWeight="Bold" Click="CreateOneNotePageButton_Click" />
+        <TextBlock x:Name="StatusMsg" HorizontalAlignment="Left" Margin="686,146,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="235" Width="451" FontSize="12" />
+        <ListBox x:Name="TemplateListBox" HorizontalAlignment="Left" Height="237" Margin="76,230,0,0" VerticalAlignment="Top" Width="194" Background="Azure">
+            <ListBoxItem Content="SOAP.jpg" />
+            <ListBoxItem Content="Progress_Note.jpg" />
+            <ListBoxItem Content="Asthma.jpg" RenderTransformOrigin="0.5,0.5">
+                <ListBoxItem.RenderTransform>
+                    <CompositeTransform SkewX="4.348" TranslateX="1.673" />
+                </ListBoxItem.RenderTransform>
+            </ListBoxItem>
+        </ListBox>
+        <Button x:Name="SignOutButton" Content="Sign MeOut" HorizontalAlignment="Left" Margin="1267,54,0,0" VerticalAlignment="Top" Height="77" Width="253" FontSize="24" FontWeight="Bold" Click="SignOutButton_Click" RenderTransformOrigin="2.761,0.358" />
+        <ListBox x:Name="PatientListBox" HorizontalAlignment="Left" Height="237" Margin="487,266,0,0" VerticalAlignment="Top" Width="194" Background="Azure">
+            <ListBoxItem Content="Patient Alpha" />
+            <ListBoxItem Content="Patient Beta" />
+            <ListBoxItem Content="Patient Gamma" />
+        </ListBox>
+        <TextBlock x:Name="TemplateTextBlock" HorizontalAlignment="Left" Margin="164,174,0,0" TextWrapping="Wrap" Text="SOAP.jpg" VerticalAlignment="Top" Height="51" Width="174" />
+        <TextBlock x:Name="PatientTextBlock" HorizontalAlignment="Left" Margin="583,177,0,0" TextWrapping="Wrap" Text="Alpha,Patient" VerticalAlignment="Top" Height="51" Width="174" />
+        <Button x:Name="GetExamplesButton" Content="Get Examples" HorizontalAlignment="Left" Margin="689,54,0,0" VerticalAlignment="Top" Height="77" Width="228" FontSize="24" FontWeight="Bold" Click="GetExamplesButton_Click" />
+        <Button x:Name="CreateSectionButton" Content="Create OneNote Section" HorizontalAlignment="Left" Margin="315,54,0,0" VerticalAlignment="Top" Height="77" Width="333" FontSize="24" FontWeight="Bold" Click="CreateSectionButton_Click" />
+        <Grid1:SfDataGrid x:Name="TemplateGrid" HorizontalAlignment="Left" Height="309" Margin="148,527,0,0" VerticalAlignment="Top" Width="337" SelectionChanged="TemplateGrid_SelectionChanged" Tapped="TemplateGrid_Tapped" CellTapped="TemplateGrid_CellTapped" CurrentCellActivated="TemplateGrid_CurrentCellActivated" />
+        <Grid1:SfDataGrid x:Name="PatientGrid"
+                          HorizontalAlignment="Left"
+                          Height="309" Margin="537,527,0,0"
+                          VerticalAlignment="Top" Width="397"
+                           AllowEditing="True"
+                       AutoGenerateColumns="False"     
+                          ItemsSource="{Binding Patient}">
+
+            <Grid1:SfDataGrid.Columns>
+                <Grid1:GridTextColumn MappingName="FirstName" />
+                <Grid1:GridTextColumn MappingName="LastName" />
+                <Grid1:GridTextColumn MappingName="City" />
+            </Grid1:SfDataGrid.Columns>
+        </Grid1:SfDataGrid>
+        <Input1:SfTextBoxExt x:Name="txtCellValue" HorizontalAlignment="Left" Margin="148,449,0,0" TextWrapping="Wrap" Text="SfTextBoxExt" VerticalAlignment="Top" Height="54" Width="334" FontSize="24"/>
+    </Grid>
+</Page>
